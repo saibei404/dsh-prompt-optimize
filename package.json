@@ -1,6 +1,6 @@
-{
+﻿{
   "name": "dsh-prompt-polish",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "private": true,
   "description": "DeepSeek Harness 提示词优化插件：在输入框旁加一个「✦ 优化提示词」按钮，把草稿改写成清晰、具体、可执行的提示词，成功后才覆盖草稿并可一键撤销。",
   "repository": {
