@@ -1,10 +1,10 @@
 window.__ModuleLoader__.load({
-  id: 'dsh-prompt-polish',
+  id: 'dsh-prompt-optimize',
   factory(require) {
     const React = require('react')
     const h = React.createElement
     const { useRef, useState } = React
-    const STYLE_ID = 'dsh-prompt-polish-style'
+    const STYLE_ID = 'dsh-prompt-optimize-style'
 
     function installStyle() {
       if (document.getElementById(STYLE_ID)) return
@@ -16,19 +16,19 @@ window.__ModuleLoader__.load({
       // in dark mode. Canvas/CanvasText are the last-resort fallbacks and follow
       // the system colour scheme too.
       style.textContent = `
-        .dsh-prompt-polish-button{display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 10px;border:1px solid var(--dsw-alias-border-l2,color-mix(in srgb,CanvasText 18%,transparent));border-radius:var(--dsw-radius-sm,8px);background:var(--dsw-alias-bg-layer-2,Canvas);color:var(--dsw-alias-label-primary,CanvasText);font:inherit;font-size:12px;cursor:pointer;white-space:nowrap;transition:background-color .15s ease,opacity .15s ease}
-        .dsh-prompt-polish-button:hover:not(:disabled){background:var(--dsw-alias-interactive-bg-hover,color-mix(in srgb,CanvasText 8%,transparent))}
-        .dsh-prompt-polish-button:active:not(:disabled){background:var(--dsw-alias-interactive-bg-active,color-mix(in srgb,CanvasText 12%,transparent))}
-        .dsh-prompt-polish-button:disabled{opacity:.5;cursor:not-allowed}
-        .dsh-prompt-polish-button:focus-visible{outline:2px solid var(--dsw-alias-state-business-primary,CanvasText);outline-offset:2px}
-        .dsh-prompt-polish-backdrop{position:fixed;inset:0;z-index:2000;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.45);padding:24px}
-        .dsh-prompt-polish-dialog{width:min(440px,88vw);padding:18px 18px 14px;border-radius:var(--dsw-radius-md,12px);border:1px solid var(--dsw-alias-border-l2,color-mix(in srgb,CanvasText 18%,transparent));background:var(--dsw-alias-bg-layer-1,Canvas);color:var(--dsw-alias-label-primary,CanvasText);box-shadow:0 18px 40px rgba(0,0,0,.35);font-size:13px;line-height:1.6}
-        .dsh-prompt-polish-dialog-title{display:flex;align-items:center;gap:8px;margin:0 0 8px;font-size:15px;font-weight:600}
-        .dsh-prompt-polish-dialog-body{margin:0 0 14px;color:var(--dsw-alias-label-secondary,CanvasText);word-break:break-word}
-        .dsh-prompt-polish-dialog-actions{display:flex;justify-content:flex-end;gap:8px}
-        .dsh-prompt-polish-dialog-ok{height:30px;padding:0 16px;border:1px solid transparent;border-radius:var(--dsw-radius-sm,8px);background:var(--dsw-alias-brand-primary,CanvasText);color:var(--dsw-alias-bg-layer-1,Canvas);font:inherit;font-size:12px;cursor:pointer}
-        .dsh-prompt-polish-dialog-ok:hover{opacity:.88}
-        .dsh-prompt-polish-dialog-ok:focus-visible{outline:2px solid var(--dsw-alias-state-business-primary,CanvasText);outline-offset:2px}
+        .dsh-prompt-optimize-button{display:inline-flex;align-items:center;gap:6px;height:30px;padding:0 10px;border:1px solid var(--dsw-alias-border-l2,color-mix(in srgb,CanvasText 18%,transparent));border-radius:var(--dsw-radius-sm,8px);background:var(--dsw-alias-bg-layer-2,Canvas);color:var(--dsw-alias-label-primary,CanvasText);font:inherit;font-size:12px;cursor:pointer;white-space:nowrap;transition:background-color .15s ease,opacity .15s ease}
+        .dsh-prompt-optimize-button:hover:not(:disabled){background:var(--dsw-alias-interactive-bg-hover,color-mix(in srgb,CanvasText 8%,transparent))}
+        .dsh-prompt-optimize-button:active:not(:disabled){background:var(--dsw-alias-interactive-bg-active,color-mix(in srgb,CanvasText 12%,transparent))}
+        .dsh-prompt-optimize-button:disabled{opacity:.5;cursor:not-allowed}
+        .dsh-prompt-optimize-button:focus-visible{outline:2px solid var(--dsw-alias-state-business-primary,CanvasText);outline-offset:2px}
+        .dsh-prompt-optimize-backdrop{position:fixed;inset:0;z-index:2000;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.45);padding:24px}
+        .dsh-prompt-optimize-dialog{width:min(440px,88vw);padding:18px 18px 14px;border-radius:var(--dsw-radius-md,12px);border:1px solid var(--dsw-alias-border-l2,color-mix(in srgb,CanvasText 18%,transparent));background:var(--dsw-alias-bg-layer-1,Canvas);color:var(--dsw-alias-label-primary,CanvasText);box-shadow:0 18px 40px rgba(0,0,0,.35);font-size:13px;line-height:1.6}
+        .dsh-prompt-optimize-dialog-title{display:flex;align-items:center;gap:8px;margin:0 0 8px;font-size:15px;font-weight:600}
+        .dsh-prompt-optimize-dialog-body{margin:0 0 14px;color:var(--dsw-alias-label-secondary,CanvasText);word-break:break-word}
+        .dsh-prompt-optimize-dialog-actions{display:flex;justify-content:flex-end;gap:8px}
+        .dsh-prompt-optimize-dialog-ok{height:30px;padding:0 16px;border:1px solid transparent;border-radius:var(--dsw-radius-sm,8px);background:var(--dsw-alias-brand-primary,CanvasText);color:var(--dsw-alias-bg-layer-1,Canvas);font:inherit;font-size:12px;cursor:pointer}
+        .dsh-prompt-optimize-dialog-ok:hover{opacity:.88}
+        .dsh-prompt-optimize-dialog-ok:focus-visible{outline:2px solid var(--dsw-alias-state-business-primary,CanvasText);outline-offset:2px}
       `
       document.head.appendChild(style)
     }
@@ -55,7 +55,7 @@ window.__ModuleLoader__.load({
         if (!canUse || busy || latestDraft.current !== original) return
         setBusy(true)
         try {
-          const response = await fetch('/api/dsh-prompt-polish', {
+          const response = await fetch('/api/dsh-prompt-optimize', {
             method: 'POST',
             credentials: 'same-origin',
             headers: { 'content-type': 'application/json' },
@@ -70,13 +70,13 @@ window.__ModuleLoader__.load({
             throw new Error(result?.error || '优化失败。')
           }
           if (latestDraft.current !== original) {
-            console.warn('[dsh-prompt-polish] 草稿在优化期间有变化，结果未覆盖。')
+            console.warn('[dsh-prompt-optimize] 草稿在优化期间有变化，结果未覆盖。')
             return
           }
           setBackup({ original, optimized: result.optimized })
           inputActions.setDraft(result.optimized)
         } catch (error) {
-          console.warn('[dsh-prompt-polish] 优化失败：', error?.message || error)
+          console.warn('[dsh-prompt-optimize] 优化失败：', error?.message || error)
         } finally {
           setBusy(false)
         }
@@ -85,7 +85,7 @@ window.__ModuleLoader__.load({
       function undo() {
         if (!backup) return
         if (latestDraft.current !== backup.optimized) {
-          console.warn('[dsh-prompt-polish] 当前草稿已有改动，未恢复旧版本。')
+          console.warn('[dsh-prompt-optimize] 当前草稿已有改动，未恢复旧版本。')
           setBackup(null)
           return
         }
@@ -105,7 +105,7 @@ window.__ModuleLoader__.load({
       return h(React.Fragment, null,
         h('button', {
           type: 'button',
-          className: 'dsh-prompt-polish-button',
+          className: 'dsh-prompt-optimize-button',
           disabled: !backup && (!canUse || busy),
           onClick: backup ? undo : optimize,
           title: describeTitle(),
@@ -114,22 +114,22 @@ window.__ModuleLoader__.load({
         }, backup ? '↶ 撤销' : busy ? '优化中…' : '✦ 优化提示词'),
         balanceNotice
           ? h('div', {
-            className: 'dsh-prompt-polish-backdrop',
+            className: 'dsh-prompt-optimize-backdrop',
             role: 'presentation',
             onClick: () => setBalanceNotice(''),
           }, h('div', {
-            className: 'dsh-prompt-polish-dialog',
+            className: 'dsh-prompt-optimize-dialog',
             role: 'alertdialog',
             'aria-modal': 'true',
             'aria-label': '余额不足',
             onClick: event => event.stopPropagation(),
           },
-          h('div', { className: 'dsh-prompt-polish-dialog-title' }, '⚠ 余额不足'),
-          h('div', { className: 'dsh-prompt-polish-dialog-body' }, balanceNotice),
-          h('div', { className: 'dsh-prompt-polish-dialog-actions' },
+          h('div', { className: 'dsh-prompt-optimize-dialog-title' }, '⚠ 余额不足'),
+          h('div', { className: 'dsh-prompt-optimize-dialog-body' }, balanceNotice),
+          h('div', { className: 'dsh-prompt-optimize-dialog-actions' },
             h('button', {
               type: 'button',
-              className: 'dsh-prompt-polish-dialog-ok',
+              className: 'dsh-prompt-optimize-dialog-ok',
               onClick: () => setBalanceNotice(''),
               autoFocus: true,
             }, '知道了'),
@@ -143,7 +143,7 @@ window.__ModuleLoader__.load({
       inject: ['slots'],
       apply(ctx) {
         ctx.slots.inject('conversation.input.right', () =>
-          ctx.slots.register({ name: 'conversation.input.right', id: 'dsh-prompt-polish', order: 80 }, PromptPolishButton),
+          ctx.slots.register({ name: 'conversation.input.right', id: 'dsh-prompt-optimize', order: 80 }, PromptPolishButton),
         )
       },
     }

@@ -1,6 +1,6 @@
 import Schema from '@deepseek-ai/schemastery'
 
-export const name = 'dsh-prompt-polish'
+export const name = 'dsh-prompt-optimize'
 export const inject = ['llm', 'webServer']
 
 export const Config = Schema.object({
@@ -68,7 +68,7 @@ async function readJson(req, limit) {
 export function apply(ctx, config) {
   ctx.effect(() => ctx.webServer.register({
     kind: 'exact',
-    path: '/api/dsh-prompt-polish',
+    path: '/api/dsh-prompt-optimize',
     handler: async (req, res) => {
       if (req.method !== 'POST') return sendJson(res, 405, { error: '仅支持 POST 请求。' })
       const origin = req.headers.origin

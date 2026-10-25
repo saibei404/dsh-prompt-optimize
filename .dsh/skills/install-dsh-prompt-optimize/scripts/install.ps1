@@ -1,6 +1,6 @@
 ﻿<#
 .SYNOPSIS
-  一键安装 / 升级 DeepSeek Harness 提示词优化插件 dsh-prompt-polish。
+  一键安装 / 升级 DeepSeek Harness 提示词优化插件 dsh-prompt-optimize。
 
 .DESCRIPTION
   依次执行：前置检查 -> 安装 -> 安装结果校验 -> 打印重启与验证指引。
@@ -25,9 +25,9 @@ param(
 )
 
 $ErrorActionPreference = 'Stop'
-$RepoUrl = 'https://github.com/saibei404/dsh-prompt-polish'
-$Package = 'dsh-prompt-polish'
-$Spec = 'github:saibei404/dsh-prompt-polish#main'
+$RepoUrl = 'https://github.com/saibei404/dsh-prompt-optimize'
+$Package = 'dsh-prompt-optimize'
+$Spec = 'github:saibei404/dsh-prompt-optimize#main'
 $DshHome = if ($env:DSH_HOME) { $env:DSH_HOME } else { Join-Path $env:USERPROFILE '.dsh' }
 $ProfileDir = Join-Path $DshHome (Join-Path 'profiles' $Profile)
 
@@ -40,7 +40,7 @@ function Die($text, $hint) {
   exit 1
 }
 
-Write-Host "dsh-prompt-polish installer" -ForegroundColor White
+Write-Host "dsh-prompt-optimize installer" -ForegroundColor White
 Write-Host "  repo    : $RepoUrl"
 Write-Host "  profile : $Profile"
 Write-Host "  spec    : $Spec"
@@ -130,7 +130,7 @@ Write-Host '  1) 重启 DSH Web 进程（插件在启动时组装，必须重启
 Write-Host '       在运行 dsh web 的终端按 Ctrl+C，然后重新执行 dsh web' -ForegroundColor White
 Write-Host '  2) 浏览器刷新 http://127.0.0.1:3080'
 Write-Host '  3) 验证：'
-Write-Host '       curl.exe -s -o NUL -w "%{http_code}" http://127.0.0.1:3080/api/dsh-prompt-polish' -ForegroundColor White
+Write-Host '       curl.exe -s -o NUL -w "%{http_code}" http://127.0.0.1:3080/api/dsh-prompt-optimize' -ForegroundColor White
 Write-Host '       返回 405 表示路由已注册（正确）；404 表示插件没加载'
 Write-Host '  4) 界面：输入框右侧、模型选择器左边出现「✦ 优化提示词」'
 Write-Host ''

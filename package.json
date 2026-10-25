@@ -1,15 +1,15 @@
 {
-  "name": "dsh-prompt-polish",
+  "name": "dsh-prompt-optimize",
   "version": "1.1.1",
   "private": true,
-  "description": "DeepSeek Harness 提示词优化插件：在输入框旁加一个「✦ 优化提示词」按钮，把草稿改写成清晰、具体、可执行的提示词，成功后才覆盖草稿并可一键撤销。",
+  "description": "DSH 提示词优化（dsh-prompt-optimize）：DeepSeek Harness 提示词优化插件：在输入框旁加一个「✦ 优化提示词」按钮，把草稿改写成清晰、具体、可执行的提示词，成功后才覆盖草稿并可一键撤销。",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/saibei404/dsh-prompt-polish.git"
+    "url": "git+https://github.com/saibei404/dsh-prompt-optimize.git"
   },
-  "homepage": "https://github.com/saibei404/dsh-prompt-polish#readme",
+  "homepage": "https://github.com/saibei404/dsh-prompt-optimize#readme",
   "bugs": {
-    "url": "https://github.com/saibei404/dsh-prompt-polish/issues"
+    "url": "https://github.com/saibei404/dsh-prompt-optimize/issues"
   },
   "type": "module",
   "main": "index.js",

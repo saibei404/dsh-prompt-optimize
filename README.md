@@ -1,4 +1,4 @@
-# dsh-prompt-polish
+# DSH 提示词优化（dsh-prompt-optimize）
 
 DeepSeek Harness（DSH）的提示词优化插件：在输入框旁加一个 `✦ 优化提示词` 按钮，把草稿改写成清晰、具体、可执行的提示词，成功后才覆盖草稿，并可一键撤销。
 
@@ -20,10 +20,10 @@ A prompt-polishing plugin for DeepSeek Harness. One `✦ 优化提示词` button
 
 ### 一键安装（推荐）
 
-仓库内置了安装 skill：`.dsh/skills/install-dsh-prompt-polish/`。用 DSH 打开本仓库后，直接说「安装 dsh-prompt-polish」即可，或手动执行：
+仓库内置了安装 skill：`.dsh/skills/install-dsh-prompt-optimize/`。用 DSH 打开本仓库后，直接说「安装 dsh-prompt-optimize」即可，或手动执行：
 
 ```powershell
-powershell -NoProfile -File .dsh/skills/install-dsh-prompt-polish/scripts/install.ps1
+powershell -NoProfile -File .dsh/skills/install-dsh-prompt-optimize/scripts/install.ps1
 ```
 
 脚本会做前置检查 → 安装 → 结果校验 → 打印重启与验证指引；`-DryRun` 只检查不安装，`-Profile <name>` 换 profile。
@@ -31,7 +31,7 @@ powershell -NoProfile -File .dsh/skills/install-dsh-prompt-polish/scripts/instal
 ### 直接安装
 
 ```powershell
-dsh plugin --profile web add github:saibei404/dsh-prompt-polish#main
+dsh plugin --profile web add github:saibei404/dsh-prompt-optimize#main
 ```
 
 安装后**重启 `dsh web`**。按钮出现在输入框右侧、模型选择器左边。
@@ -39,15 +39,15 @@ dsh plugin --profile web add github:saibei404/dsh-prompt-polish#main
 也可以从本地目录安装：
 
 ```powershell
-dsh plugin --profile web add C:\path\to\dsh-prompt-polish
+dsh plugin --profile web add C:\path\to\dsh-prompt-optimize
 ```
 
 或手动加入 profile 的 `package.json` 依赖，并把它加进 `dsh.profile.bundles`：
 
 ```json
 {
-  "dependencies": { "dsh-prompt-polish": "file:./dsh-prompt-polish" },
-  "dsh": { "profile": { "bundles": ["dsh-prompt-polish"] } }
+  "dependencies": { "dsh-prompt-optimize": "file:./dsh-prompt-optimize" },
+  "dsh": { "profile": { "bundles": ["dsh-prompt-optimize"] } }
 }
 ```
 
@@ -56,8 +56,8 @@ dsh plugin --profile web add C:\path\to\dsh-prompt-polish
 默认值写在插件里，可在 profile 的 `cordis.patch.yml` 中覆盖：
 
 ```yaml
-- id: dsh-prompt-polish
-  name: dsh-prompt-polish
+- id: dsh-prompt-optimize
+  name: dsh-prompt-optimize
   config:
     provider: deepseek-official
     model: deepseek-flash
@@ -91,7 +91,7 @@ dsh plugin --profile web add C:\path\to\dsh-prompt-polish
 
 ## 接口 / Endpoint
 
-`POST /api/dsh-prompt-polish`
+`POST /api/dsh-prompt-optimize`
 
 ```jsonc
 // request
